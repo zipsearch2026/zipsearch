@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--
+  index.html
+  ----------------------------------------------------------
+  이 파일은 화면의 '뼈대'입니다. 실제 데이터를 불러오고 차트를
+  그리는 일은 js/ 폴더의 자바스크립트 파일들이 담당합니다.
+
+  [초보자 안내 - 이 페이지의 구성]
+    1) 위쪽: 제목
+    2) 컨트롤 영역: 지수(매매/전세) 선택, 기간(시작~끝) 선택,
+                    지역 선택(최대 10개), 검색창
+    3) 아래쪽: 선택한 지역마다 개별 차트가 하나씩 나타나는 자리
+
+  [파일 연결 순서]
+    - Chart.js  : 차트를 그려주는 외부 라이브러리 (CDN에서 불러옴)
+    - dataLoader.js : JSON 데이터를 읽어오는 담당
+    - chartRenderer.js : Chart.js로 그림을 그리는 담당
+    - ui.js     : 버튼/선택창 등 화면 조작 담당
+    - main.js   : 위 셋을 순서대로 지휘하는 '시작점'
+    ★ main.js가 가장 마지막에 로드되어 전체를 실행합니다.
+  ----------------------------------------------------------
+-->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>한국 부동산 가격지수 뷰어</title>
+
+  <!-- 우리가 만든 디자인(css) 연결 -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Chart.js: 차트를 그려주는 무료 라이브러리 (인터넷에서 불러옴) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+  <!-- ===================== 헤더 (슬림) ===================== -->
+  <header class="site-header">
+    <div class="wrap header-row">
+      <h1>부동산 가격지수 뷰어</h1>
+      <span class="header-note">한국부동산원 · 원자료 · 월별</span>
+    </div>
+  </header>
+
+  <!-- ===================== 컨트롤 영역 ===================== -->
+  <section class="controls">
+    <div class="wrap controls-grid">
+
+      <!-- (1) 지수 종류: 매매 / 전세 -->
+      <div class="control-block">
+        <label class="control-label">지수 종류</label>
+        <div class="segmented" id="type-toggle">
+          <button class="seg-btn is-active" data-type="sale">매매</button>
+          <button class="seg-btn" data-type="jeonse">전세</button>
+        </div>
+      </div>
+
+      <!-- (2) 기간: 시작 ~ 끝 (드롭다운은 JS가 채움) -->
+      <div class="control-block">
+        <label class="control-label">기간</label>
+        <div class="period-row">
+          <select id="start-select" class="select" aria-label="시작 월"></select>
+          <span class="tilde">~</span>
+          <select id="end-select" class="select" aria-label="끝 월"></select>
+        </div>
+      </div>
+
+      <!-- (3) 이동평균(MA) 표시 토글: 모든 차트에 동시 적용 -->
+      <div class="control-block">
+        <label class="control-label">이동평균선</label>
+        <div class="ma-toggle" id="ma-toggle">
+          <!-- data-ma 값이 상태 key(raw/ma3/ma6/ma12)와 짝을 이룸 -->
+          <button class="ma-btn is-active" data-ma="raw">원본</button>
+          <button class="ma-btn" data-ma="ma3">3M</button>
+          <button class="ma-btn" data-ma="ma6">6M</button>
+          <button class="ma-btn" data-ma="ma12">12M</button>
+        </div>
+      </div>
+
+      <!-- (4) 선택 현황 -->
+      <div class="control-block">
+        <label class="control-label">선택한 지역</label>
+        <div class="count-pill">
+          <span id="selected-count">0</span> / 10
+        </div>
+      </div>
+    </div>
+
+    <!-- (5) 지역 선택: [선택 칩들] + [지역 선택하기 버튼] + [접히는 목록] -->
+    <div class="wrap region-picker">
+
+      <!-- 선택한 지역을 작은 칩(태그)으로 표시. JS가 채움 -->
+      <div id="selected-chips" class="selected-chips"></div>
+
+      <!-- 목록을 펼치고 접는 버튼. 클릭하면 아래 목록이 열리고 닫힘 -->
+      <button id="picker-toggle" class="picker-toggle" aria-expanded="false">
+        <span>지역 선택하기</span>
+        <span class="chev">▾</span>
+      </button>
+
+      <!-- 접히는 목록 영역 (기본은 닫힘: is-open 클래스가 있을 때만 보임) -->
+      <div id="picker-panel" class="picker-panel">
+        <input
+          type="text"
+          id="region-search"
+          class="search"
+          placeholder="지역 검색 (예: 안양, 강남, 부산)"
+        />
+        <div id="region-list" class="region-list">
+          <!-- 여기에 지역 체크박스들이 자바스크립트로 채워집니다 -->
+          <p class="loading">지역 목록을 불러오는 중…</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 차트 영역 ===================== -->
+  <main class="wrap charts-area">
+    <!-- 아무 지역도 안 골랐을 때 보여줄 안내 -->
+    <div id="empty-state" class="empty-state">
+      <p>왼쪽 위에서 지수 종류와 기간을 고르고,<br />아래 목록에서 지역을 선택하면 차트가 나타납니다.</p>
+    </div>
+
+    <!-- 선택한 지역별 차트가 이 안에 하나씩 생깁니다 -->
+    <div id="charts-grid" class="charts-grid"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>데이터 출처: 한국부동산원 주택가격동향조사 (매매·전세 가격지수, 원자료)</p>
+    </div>
+  </footer>
+
+  <!--
+    ===================== 스크립트 로드 =====================
+    순서가 중요합니다. main.js가 나머지를 사용하므로 맨 마지막에 둡니다.
+  -->
+  <script src="js/dataLoader.js"></script>
+  <script src="js/chartRenderer.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

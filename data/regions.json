@@ -1,0 +1,1412 @@
+[
+  {
+    "name": "전국",
+    "slug": "region_001",
+    "file": "region_001.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "수도권",
+    "slug": "region_002",
+    "file": "region_002.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "지방권",
+    "slug": "region_003",
+    "file": "region_003.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "6대광역시",
+    "slug": "region_004",
+    "file": "region_004.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "5대광역시",
+    "slug": "region_005",
+    "file": "region_005.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "9개도",
+    "slug": "region_006",
+    "file": "region_006.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "8개도",
+    "slug": "region_007",
+    "file": "region_007.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울",
+    "slug": "region_008",
+    "file": "region_008.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 강북지역",
+    "slug": "region_009",
+    "file": "region_009.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "강북지역 도심권",
+    "slug": "region_010",
+    "file": "region_010.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 종로구",
+    "slug": "region_011",
+    "file": "region_011.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 중구",
+    "slug": "region_012",
+    "file": "region_012.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 용산구",
+    "slug": "region_013",
+    "file": "region_013.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "강북지역 동북권",
+    "slug": "region_014",
+    "file": "region_014.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 성동구",
+    "slug": "region_015",
+    "file": "region_015.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 광진구",
+    "slug": "region_016",
+    "file": "region_016.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 동대문구",
+    "slug": "region_017",
+    "file": "region_017.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 중랑구",
+    "slug": "region_018",
+    "file": "region_018.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 성북구",
+    "slug": "region_019",
+    "file": "region_019.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 강북구",
+    "slug": "region_020",
+    "file": "region_020.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 도봉구",
+    "slug": "region_021",
+    "file": "region_021.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 노원구",
+    "slug": "region_022",
+    "file": "region_022.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "강북지역 서북권",
+    "slug": "region_023",
+    "file": "region_023.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 은평구",
+    "slug": "region_024",
+    "file": "region_024.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 서대문구",
+    "slug": "region_025",
+    "file": "region_025.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 마포구",
+    "slug": "region_026",
+    "file": "region_026.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 강남지역",
+    "slug": "region_027",
+    "file": "region_027.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "강남지역 서남권",
+    "slug": "region_028",
+    "file": "region_028.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 양천구",
+    "slug": "region_029",
+    "file": "region_029.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 강서구",
+    "slug": "region_030",
+    "file": "region_030.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 구로구",
+    "slug": "region_031",
+    "file": "region_031.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 금천구",
+    "slug": "region_032",
+    "file": "region_032.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 영등포구",
+    "slug": "region_033",
+    "file": "region_033.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 동작구",
+    "slug": "region_034",
+    "file": "region_034.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 관악구",
+    "slug": "region_035",
+    "file": "region_035.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "강남지역 동남권",
+    "slug": "region_036",
+    "file": "region_036.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 서초구",
+    "slug": "region_037",
+    "file": "region_037.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 강남구",
+    "slug": "region_038",
+    "file": "region_038.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 송파구",
+    "slug": "region_039",
+    "file": "region_039.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서울 강동구",
+    "slug": "region_040",
+    "file": "region_040.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "전남광주",
+    "slug": "region_041",
+    "file": "region_041.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "전남광주 전남",
+    "slug": "region_042",
+    "file": "region_042.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "목포시",
+    "slug": "region_043",
+    "file": "region_043.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "여수시",
+    "slug": "region_044",
+    "file": "region_044.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "순천시",
+    "slug": "region_045",
+    "file": "region_045.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "나주시",
+    "slug": "region_046",
+    "file": "region_046.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "광양시",
+    "slug": "region_047",
+    "file": "region_047.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "전남 무안군",
+    "slug": "region_048",
+    "file": "region_048.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "전남광주 광주",
+    "slug": "region_049",
+    "file": "region_049.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "광주 동구",
+    "slug": "region_050",
+    "file": "region_050.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "광주 서구",
+    "slug": "region_051",
+    "file": "region_051.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "광주 남구",
+    "slug": "region_052",
+    "file": "region_052.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "광주 북구",
+    "slug": "region_053",
+    "file": "region_053.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "광주 광산구",
+    "slug": "region_054",
+    "file": "region_054.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경기",
+    "slug": "region_055",
+    "file": "region_055.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경기 경부1권",
+    "slug": "region_056",
+    "file": "region_056.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "과천시",
+    "slug": "region_057",
+    "file": "region_057.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "안양시",
+    "slug": "region_058",
+    "file": "region_058.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "안양시 만안구",
+    "slug": "region_059",
+    "file": "region_059.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "안양시 동안구",
+    "slug": "region_060",
+    "file": "region_060.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "성남시",
+    "slug": "region_061",
+    "file": "region_061.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "성남시 수정구",
+    "slug": "region_062",
+    "file": "region_062.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "성남시 중원구",
+    "slug": "region_063",
+    "file": "region_063.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "성남시 분당구",
+    "slug": "region_064",
+    "file": "region_064.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "군포시",
+    "slug": "region_065",
+    "file": "region_065.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "의왕시",
+    "slug": "region_066",
+    "file": "region_066.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경기 경부2권",
+    "slug": "region_067",
+    "file": "region_067.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "안성시",
+    "slug": "region_068",
+    "file": "region_068.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "용인시",
+    "slug": "region_069",
+    "file": "region_069.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "용인시 처인구",
+    "slug": "region_070",
+    "file": "region_070.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "용인시 기흥구",
+    "slug": "region_071",
+    "file": "region_071.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "용인시 수지구",
+    "slug": "region_072",
+    "file": "region_072.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "수원시",
+    "slug": "region_073",
+    "file": "region_073.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "수원시 장안구",
+    "slug": "region_074",
+    "file": "region_074.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "수원시 권선구",
+    "slug": "region_075",
+    "file": "region_075.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "수원시 팔달구",
+    "slug": "region_076",
+    "file": "region_076.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "수원시 영통구",
+    "slug": "region_077",
+    "file": "region_077.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경기 서해안권",
+    "slug": "region_078",
+    "file": "region_078.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부천시",
+    "slug": "region_079",
+    "file": "region_079.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부천시 원미구",
+    "slug": "region_080",
+    "file": "region_080.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부천시 소사구",
+    "slug": "region_081",
+    "file": "region_081.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부천시 오정구",
+    "slug": "region_082",
+    "file": "region_082.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "안산시",
+    "slug": "region_083",
+    "file": "region_083.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "안산시 상록구",
+    "slug": "region_084",
+    "file": "region_084.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "안산시 단원구",
+    "slug": "region_085",
+    "file": "region_085.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "시흥시",
+    "slug": "region_086",
+    "file": "region_086.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "광명시",
+    "slug": "region_087",
+    "file": "region_087.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "화성시",
+    "slug": "region_088",
+    "file": "region_088.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "화성시 만세구",
+    "slug": "region_089",
+    "file": "region_089.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "화성시 효행구",
+    "slug": "region_090",
+    "file": "region_090.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "화성시 병점구",
+    "slug": "region_091",
+    "file": "region_091.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "화성시 동탄구",
+    "slug": "region_092",
+    "file": "region_092.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "오산시",
+    "slug": "region_093",
+    "file": "region_093.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "평택시",
+    "slug": "region_094",
+    "file": "region_094.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경기 동부1권",
+    "slug": "region_095",
+    "file": "region_095.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "남양주시",
+    "slug": "region_096",
+    "file": "region_096.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "구리시",
+    "slug": "region_097",
+    "file": "region_097.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "하남시",
+    "slug": "region_098",
+    "file": "region_098.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "광주시",
+    "slug": "region_099",
+    "file": "region_099.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경기 동부2권",
+    "slug": "region_100",
+    "file": "region_100.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "이천시",
+    "slug": "region_101",
+    "file": "region_101.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "여주시",
+    "slug": "region_102",
+    "file": "region_102.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경기 경의권",
+    "slug": "region_103",
+    "file": "region_103.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "김포시",
+    "slug": "region_104",
+    "file": "region_104.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "고양시",
+    "slug": "region_105",
+    "file": "region_105.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "고양시 덕양구",
+    "slug": "region_106",
+    "file": "region_106.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "고양시 일산동구",
+    "slug": "region_107",
+    "file": "region_107.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "고양시 일산서구",
+    "slug": "region_108",
+    "file": "region_108.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "파주시",
+    "slug": "region_109",
+    "file": "region_109.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경기 경원권",
+    "slug": "region_110",
+    "file": "region_110.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "포천시",
+    "slug": "region_111",
+    "file": "region_111.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "동두천시",
+    "slug": "region_112",
+    "file": "region_112.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "양주시",
+    "slug": "region_113",
+    "file": "region_113.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "의정부시",
+    "slug": "region_114",
+    "file": "region_114.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "인천",
+    "slug": "region_115",
+    "file": "region_115.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "인천 중구",
+    "slug": "region_116",
+    "file": "region_116.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "인천 동구",
+    "slug": "region_117",
+    "file": "region_117.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "인천 미추홀구",
+    "slug": "region_118",
+    "file": "region_118.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "인천 연수구",
+    "slug": "region_119",
+    "file": "region_119.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "인천 남동구",
+    "slug": "region_120",
+    "file": "region_120.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "인천 부평구",
+    "slug": "region_121",
+    "file": "region_121.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "인천 계양구",
+    "slug": "region_122",
+    "file": "region_122.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "인천 서구",
+    "slug": "region_123",
+    "file": "region_123.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산",
+    "slug": "region_124",
+    "file": "region_124.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 중부산권",
+    "slug": "region_125",
+    "file": "region_125.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 중구",
+    "slug": "region_126",
+    "file": "region_126.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 서구",
+    "slug": "region_127",
+    "file": "region_127.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 동구",
+    "slug": "region_128",
+    "file": "region_128.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 영도구",
+    "slug": "region_129",
+    "file": "region_129.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 부산진구",
+    "slug": "region_130",
+    "file": "region_130.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 남구",
+    "slug": "region_131",
+    "file": "region_131.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 연제구",
+    "slug": "region_132",
+    "file": "region_132.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 수영구",
+    "slug": "region_133",
+    "file": "region_133.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 동부산권",
+    "slug": "region_134",
+    "file": "region_134.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 해운대구",
+    "slug": "region_135",
+    "file": "region_135.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 금정구",
+    "slug": "region_136",
+    "file": "region_136.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 동래구",
+    "slug": "region_137",
+    "file": "region_137.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 기장군",
+    "slug": "region_138",
+    "file": "region_138.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 서부산권",
+    "slug": "region_139",
+    "file": "region_139.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 북구",
+    "slug": "region_140",
+    "file": "region_140.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 강서구",
+    "slug": "region_141",
+    "file": "region_141.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 사상구",
+    "slug": "region_142",
+    "file": "region_142.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "부산 사하구",
+    "slug": "region_143",
+    "file": "region_143.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대구",
+    "slug": "region_144",
+    "file": "region_144.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대구 중구",
+    "slug": "region_145",
+    "file": "region_145.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대구 동구",
+    "slug": "region_146",
+    "file": "region_146.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대구 서구",
+    "slug": "region_147",
+    "file": "region_147.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대구 남구",
+    "slug": "region_148",
+    "file": "region_148.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대구 북구",
+    "slug": "region_149",
+    "file": "region_149.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대구 수성구",
+    "slug": "region_150",
+    "file": "region_150.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대구 달서구",
+    "slug": "region_151",
+    "file": "region_151.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대구 달성군",
+    "slug": "region_152",
+    "file": "region_152.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대전",
+    "slug": "region_153",
+    "file": "region_153.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대전 동구",
+    "slug": "region_154",
+    "file": "region_154.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대전 중구",
+    "slug": "region_155",
+    "file": "region_155.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대전 서구",
+    "slug": "region_156",
+    "file": "region_156.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대전 유성구",
+    "slug": "region_157",
+    "file": "region_157.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "대전 대덕구",
+    "slug": "region_158",
+    "file": "region_158.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "울산",
+    "slug": "region_159",
+    "file": "region_159.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "울산 중구",
+    "slug": "region_160",
+    "file": "region_160.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "울산 남구",
+    "slug": "region_161",
+    "file": "region_161.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "울산 동구",
+    "slug": "region_162",
+    "file": "region_162.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "울산 북구",
+    "slug": "region_163",
+    "file": "region_163.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "울산 울주군",
+    "slug": "region_164",
+    "file": "region_164.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "세종",
+    "slug": "region_165",
+    "file": "region_165.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "강원",
+    "slug": "region_166",
+    "file": "region_166.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "춘천시",
+    "slug": "region_167",
+    "file": "region_167.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "원주시",
+    "slug": "region_168",
+    "file": "region_168.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "강릉시",
+    "slug": "region_169",
+    "file": "region_169.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "동해시",
+    "slug": "region_170",
+    "file": "region_170.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "태백시",
+    "slug": "region_171",
+    "file": "region_171.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "속초시",
+    "slug": "region_172",
+    "file": "region_172.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "삼척시",
+    "slug": "region_173",
+    "file": "region_173.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "충북",
+    "slug": "region_174",
+    "file": "region_174.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "청주시",
+    "slug": "region_175",
+    "file": "region_175.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "청주시 상당구",
+    "slug": "region_176",
+    "file": "region_176.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "청주시 서원구",
+    "slug": "region_177",
+    "file": "region_177.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "청주시 흥덕구",
+    "slug": "region_178",
+    "file": "region_178.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "청주시 청원구",
+    "slug": "region_179",
+    "file": "region_179.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "충주시",
+    "slug": "region_180",
+    "file": "region_180.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "제천시",
+    "slug": "region_181",
+    "file": "region_181.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "충북 음성군",
+    "slug": "region_182",
+    "file": "region_182.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "충남",
+    "slug": "region_183",
+    "file": "region_183.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "천안시",
+    "slug": "region_184",
+    "file": "region_184.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "천안시 동남구",
+    "slug": "region_185",
+    "file": "region_185.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "천안시 서북구",
+    "slug": "region_186",
+    "file": "region_186.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "공주시",
+    "slug": "region_187",
+    "file": "region_187.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "보령시",
+    "slug": "region_188",
+    "file": "region_188.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "아산시",
+    "slug": "region_189",
+    "file": "region_189.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서산시",
+    "slug": "region_190",
+    "file": "region_190.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "논산시",
+    "slug": "region_191",
+    "file": "region_191.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "계룡시",
+    "slug": "region_192",
+    "file": "region_192.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "충남 홍성군",
+    "slug": "region_193",
+    "file": "region_193.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "충남 예산군",
+    "slug": "region_194",
+    "file": "region_194.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "당진시",
+    "slug": "region_195",
+    "file": "region_195.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "전북",
+    "slug": "region_196",
+    "file": "region_196.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "전주시",
+    "slug": "region_197",
+    "file": "region_197.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "전주시 완산구",
+    "slug": "region_198",
+    "file": "region_198.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "전주시 덕진구",
+    "slug": "region_199",
+    "file": "region_199.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "군산시",
+    "slug": "region_200",
+    "file": "region_200.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "익산시",
+    "slug": "region_201",
+    "file": "region_201.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "정읍시",
+    "slug": "region_202",
+    "file": "region_202.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "남원시",
+    "slug": "region_203",
+    "file": "region_203.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "김제시",
+    "slug": "region_204",
+    "file": "region_204.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경북",
+    "slug": "region_205",
+    "file": "region_205.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "포항시",
+    "slug": "region_206",
+    "file": "region_206.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "포항시 남구",
+    "slug": "region_207",
+    "file": "region_207.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "포항시 북구",
+    "slug": "region_208",
+    "file": "region_208.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경주시",
+    "slug": "region_209",
+    "file": "region_209.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "김천시",
+    "slug": "region_210",
+    "file": "region_210.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "안동시",
+    "slug": "region_211",
+    "file": "region_211.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "구미시",
+    "slug": "region_212",
+    "file": "region_212.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "영주시",
+    "slug": "region_213",
+    "file": "region_213.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "영천시",
+    "slug": "region_214",
+    "file": "region_214.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "상주시",
+    "slug": "region_215",
+    "file": "region_215.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "문경시",
+    "slug": "region_216",
+    "file": "region_216.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경산시",
+    "slug": "region_217",
+    "file": "region_217.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경북 칠곡군",
+    "slug": "region_218",
+    "file": "region_218.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "경남",
+    "slug": "region_219",
+    "file": "region_219.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "창원시",
+    "slug": "region_220",
+    "file": "region_220.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "창원시 의창구",
+    "slug": "region_221",
+    "file": "region_221.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "창원시 성산구",
+    "slug": "region_222",
+    "file": "region_222.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "창원시 마산합포구",
+    "slug": "region_223",
+    "file": "region_223.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "창원시 마산회원구",
+    "slug": "region_224",
+    "file": "region_224.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "창원시 진해구",
+    "slug": "region_225",
+    "file": "region_225.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "진주시",
+    "slug": "region_226",
+    "file": "region_226.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "통영시",
+    "slug": "region_227",
+    "file": "region_227.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "사천시",
+    "slug": "region_228",
+    "file": "region_228.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "김해시",
+    "slug": "region_229",
+    "file": "region_229.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "밀양시",
+    "slug": "region_230",
+    "file": "region_230.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "거제시",
+    "slug": "region_231",
+    "file": "region_231.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "양산시",
+    "slug": "region_232",
+    "file": "region_232.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "제주",
+    "slug": "region_233",
+    "file": "region_233.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "제주시",
+    "slug": "region_234",
+    "file": "region_234.json",
+    "hasJeonse": true
+  },
+  {
+    "name": "서귀포시",
+    "slug": "region_235",
+    "file": "region_235.json",
+    "hasJeonse": true
+  }
+]

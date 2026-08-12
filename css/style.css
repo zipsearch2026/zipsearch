@@ -1,0 +1,353 @@
+/*
+  style.css
+  ------------------------------------------------------------
+  화면의 '겉모습'(색, 간격, 배치)만 담당합니다.
+  기능(데이터/차트)은 js 파일들이 맡습니다.
+
+  [디자인 방향]
+   - 부동산 '지수 데이터'는 신뢰감이 중요하므로
+     차분한 슬레이트(청회색) 톤을 기본으로 합니다.
+   - 매매=청록, 전세=호박색으로 구분(차트 색과 맞춤).
+  ------------------------------------------------------------
+*/
+
+/* ---------- 색·기본 변수 ---------- */
+:root {
+  --bg: #f1f5f9;          /* 페이지 배경 (아주 옅은 슬레이트) */
+  --panel: #ffffff;       /* 카드/패널 배경 */
+  --ink: #0f172a;         /* 진한 글자색 */
+  --ink-soft: #475569;    /* 옅은 글자색 */
+  --line: #e2e8f0;        /* 경계선 */
+  --sale: #0d9488;        /* 매매 청록 */
+  --jeonse: #d97706;      /* 전세 호박 */
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(15,23,42,0.04), 0 8px 24px rgba(15,23,42,0.06);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+    "Malgun Gothic", "Noto Sans KR", sans-serif;
+  line-height: 1.5;
+}
+
+/* 가운데 정렬 컨테이너 */
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- 헤더 (슬림: 한 줄) ---------- */
+.site-header {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;   /* 세로 여백을 크게 줄여 차트가 위로 올라오게 */
+}
+/* 제목과 출처를 한 줄에 나란히 */
+.header-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.site-header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.header-note {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* ---------- 컨트롤 영역 ---------- */
+.controls {
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0 22px;
+  position: sticky;   /* 스크롤해도 위에 붙어 편하게 */
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 1px 0 rgba(15,23,42,0.03);
+}
+.controls-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-end;
+}
+.control-block { display: flex; flex-direction: column; gap: 8px; }
+.control-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* 매매/전세 토글 */
+.segmented {
+  display: inline-flex;
+  background: #f1f5f9;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 3px;
+}
+.seg-btn {
+  border: 0;
+  background: transparent;
+  padding: 7px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.seg-btn:hover { color: var(--ink); }
+.seg-btn.is-active {
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgba(15,23,42,0.08);
+}
+/* 활성 버튼 색을 지수별로 (첫 버튼=매매, 둘째=전세) */
+.seg-btn[data-type="sale"].is-active { color: var(--sale); }
+.seg-btn[data-type="jeonse"].is-active { color: var(--jeonse); }
+
+/* 기간 드롭다운 */
+.period-row { display: flex; align-items: center; gap: 8px; }
+.select {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 9px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--ink);
+  cursor: pointer;
+  min-width: 108px;
+}
+.select:focus-visible { outline: 2px solid var(--sale); outline-offset: 1px; }
+.tilde { color: var(--ink-soft); }
+
+/* 선택 개수 pill */
+.count-pill {
+  background: #f1f5f9;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+#selected-count { color: var(--sale); }
+
+/* 이동평균(MA) 토글 버튼들 */
+.ma-toggle {
+  display: inline-flex;
+  gap: 6px;
+}
+.ma-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink-soft);
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.ma-btn:hover { border-color: #cbd5e1; color: var(--ink); }
+/* 켜진 버튼은 해당 선 색으로 표시해 차트와 연결지어 인식 */
+.ma-btn.is-active { color: #fff; border-color: transparent; }
+.ma-btn[data-ma="raw"].is-active  { background: var(--sale); }
+.ma-btn[data-ma="ma3"].is-active  { background: #2563eb; }
+.ma-btn[data-ma="ma6"].is-active  { background: #7c3aed; }
+.ma-btn[data-ma="ma12"].is-active { background: #db2777; }
+
+/* ---------- 지역 선택 (접이식 + 칩) ---------- */
+.region-picker { margin-top: 14px; }
+
+/* 선택한 지역 칩(태그)들 */
+.selected-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.selected-chips:empty { margin-bottom: 0; } /* 선택 없으면 여백 제거 */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ecfdf5;               /* 매매색 계열 옅은 배경 */
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  border-radius: 999px;
+  padding: 5px 6px 5px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.chip-x {
+  border: 0;
+  background: rgba(6,95,70,0.12);
+  color: #065f46;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chip-x:hover { background: rgba(6,95,70,0.25); }
+
+/* "지역 선택하기" 펼침 버튼 */
+.picker-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.picker-toggle:hover { border-color: #cbd5e1; }
+.picker-toggle .chev { transition: transform 0.15s; color: var(--ink-soft); }
+.picker-toggle.is-open .chev { transform: rotate(180deg); } /* 펼치면 화살표 뒤집힘 */
+
+/* 접히는 목록 패널: 기본은 숨김, is-open 일 때만 표시 */
+.picker-panel { display: none; margin-top: 12px; }
+.picker-panel.is-open { display: block; }
+
+.search {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.search:focus-visible { outline: 2px solid var(--sale); outline-offset: 1px; }
+
+.region-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 4px 10px;
+  max-height: 210px;
+  overflow-y: auto;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fafcfe;
+}
+.region-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 7px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.region-item:hover { background: #eef2f7; }
+.region-item input { cursor: pointer; accent-color: var(--sale); }
+
+.loading { color: var(--ink-soft); font-size: 14px; padding: 12px; }
+.loading.error { color: #dc2626; }
+
+/* ---------- 차트 영역 ---------- */
+.charts-area { padding: 20px 20px 48px; }
+
+.empty-state {
+  text-align: center;
+  color: var(--ink-soft);
+  padding: 64px 20px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+.empty-state p { margin: 0; font-size: 15px; }
+
+/* 기본: 한 줄에 2개(2열) */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+/* 선택이 1~2개일 때(is-few): 한 줄에 1개(1열)로 크게 */
+.charts-grid.is-few {
+  grid-template-columns: 1fr;
+}
+
+.chart-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 18px 18px;
+}
+.chart-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.chart-card-head h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+/* 차트 높이: 2열일 때도 넉넉하게 키움 */
+.canvas-wrap {
+  position: relative;
+  height: 320px;
+}
+/* 1열(크게 볼 때)일 때는 더 높게 */
+.charts-grid.is-few .canvas-wrap {
+  height: 420px;
+}
+.no-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ---------- 푸터 ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+  padding: 20px 0;
+}
+.site-footer p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+/* ---------- 모바일 대응 ---------- */
+@media (max-width: 640px) {
+  .charts-grid { grid-template-columns: 1fr; }
+  .controls-grid { gap: 16px; }
+  .canvas-wrap, .charts-grid.is-few .canvas-wrap { height: 300px; }
+}
+
+/* 애니메이션 최소화 설정을 존중 */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
