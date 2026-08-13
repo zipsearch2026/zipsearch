@@ -42,46 +42,77 @@ html, body {
   padding: 0 20px;
 }
 
-/* ---------- 헤더 (슬림: 한 줄) ---------- */
+/* ---------- 헤더 (브랜드) ---------- */
 .site-header {
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   border-bottom: 1px solid var(--line);
-  padding: 14px 0;   /* 세로 여백을 크게 줄여 차트가 위로 올라오게 */
+  padding: 14px 20px;
 }
-/* 제목과 출처를 한 줄에 나란히 */
-.header-row {
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
-  align-items: baseline;
-  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   flex-wrap: wrap;
 }
-.site-header h1 {
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-logo {
+  font-size: 26px;
+  line-height: 1;
+  filter: saturate(1.1);
+}
+.brand-text h1 {
   margin: 0;
   font-size: 20px;
   font-weight: 800;
   letter-spacing: -0.01em;
 }
-.header-note {
-  font-size: 12px;
+.brand-en {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sale);
+  letter-spacing: 0.06em;
+  margin-left: 4px;
+}
+.tagline {
+  margin: 2px 0 0;
+  font-size: 13px;
   color: var(--ink-soft);
 }
+.header-note { margin: 0; font-size: 12px; color: var(--ink-soft); }
 
-/* ---------- 컨트롤 영역 ---------- */
-.controls {
+/* ---------- 본문: 좌우 2단 레이아웃 ---------- */
+/*
+  PC: 왼쪽 사이드바(320px 고정) + 오른쪽 차트(나머지 전부)
+  이 grid가 좌우 배치의 핵심입니다.
+*/
+.app-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 320px 1fr;  /* 왼쪽 고정폭 + 오른쪽 가변 */
+  gap: 20px;
+  padding: 20px;
+  align-items: start;
+}
+
+/* ---------- 왼쪽 사이드바 ---------- */
+.sidebar {
   background: var(--panel);
-  border-bottom: 1px solid var(--line);
-  padding: 20px 0 22px;
-  position: sticky;   /* 스크롤해도 위에 붙어 편하게 */
-  top: 0;
-  z-index: 20;
-  box-shadow: 0 1px 0 rgba(15,23,42,0.03);
-}
-.controls-grid {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  align-items: flex-end;
+  flex-direction: column;
+  gap: 20px;
+  /* PC에서 스크롤해도 사이드바가 따라오도록 고정 */
+  position: sticky;
+  top: 20px;
 }
+
 .control-block { display: flex; flex-direction: column; gap: 8px; }
 .control-label {
   font-size: 12px;
@@ -89,7 +120,6 @@ html, body {
   color: var(--ink-soft);
 }
 
-/* 매매/전세 토글 */
 .segmented {
   display: inline-flex;
   background: #f1f5f9;
@@ -118,18 +148,46 @@ html, body {
 .seg-btn[data-type="sale"].is-active { color: var(--sale); }
 .seg-btn[data-type="jeonse"].is-active { color: var(--jeonse); }
 
-/* 기간 드롭다운 */
+/* 빠른 기간 버튼 (1/3/5년, 전체) */
+.quick-period {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.quick-btn {
+  flex: 1 1 auto;
+  min-width: 48px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink-soft);
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.quick-btn:hover { border-color: #cbd5e1; color: var(--ink); }
+.quick-btn.is-active {
+  background: var(--sale);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* 기간 드롭다운 (사이드바 폭에 맞춰 늘어남) */
 .period-row { display: flex; align-items: center; gap: 8px; }
 .select {
   appearance: none;
   border: 1px solid var(--line);
   background: #fff;
   border-radius: 9px;
-  padding: 8px 12px;
+  padding: 8px 10px;
   font-size: 14px;
   color: var(--ink);
   cursor: pointer;
-  min-width: 108px;
+  flex: 1 1 0;      /* 남는 폭을 시작/끝이 반씩 나눠 가짐 */
+  min-width: 0;
 }
 .select:focus-visible { outline: 2px solid var(--sale); outline-offset: 1px; }
 .tilde { color: var(--ink-soft); }
@@ -146,11 +204,13 @@ html, body {
 }
 #selected-count { color: var(--sale); }
 
-/* 이동평균(MA) 토글 버튼들 */
+/* 이동평균(MA) 토글 버튼들 (사이드바 폭에 맞게 줄바꿈 허용) */
 .ma-toggle {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   gap: 6px;
 }
+.ma-btn { flex: 1 1 auto; min-width: 56px; text-align: center; }
 .ma-btn {
   border: 1px solid var(--line);
   background: #fff;
@@ -171,7 +231,8 @@ html, body {
 .ma-btn[data-ma="ma12"].is-active { background: #db2777; }
 
 /* ---------- 지역 선택 (접이식 + 칩) ---------- */
-.region-picker { margin-top: 14px; }
+/* 사이드바 안에서는 상단 여백 불필요 (control-block gap이 대신함) */
+.region-picker { margin-top: 0; }
 
 /* 선택한 지역 칩(태그)들 */
 .selected-chips {
@@ -209,17 +270,19 @@ html, body {
 }
 .chip-x:hover { background: rgba(6,95,70,0.25); }
 
-/* "지역 선택하기" 펼침 버튼 */
+/* "지역 선택하기" 펼침 버튼 (사이드바 폭을 꽉 채움) */
 .picker-toggle {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
+  width: 100%;
   border: 1px solid var(--line);
   background: #fff;
   color: var(--ink);
   font-size: 14px;
   font-weight: 600;
-  padding: 9px 16px;
+  padding: 10px 14px;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -241,11 +304,12 @@ html, body {
 }
 .search:focus-visible { outline: 2px solid var(--sale); outline-offset: 1px; }
 
+/* 사이드바 폭이 좁으므로 1열로 세로 나열, 스크롤로 탐색 */
 .region-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 4px 10px;
-  max-height: 210px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 320px;
   overflow-y: auto;
   padding: 6px;
   border: 1px solid var(--line);
@@ -267,8 +331,8 @@ html, body {
 .loading { color: var(--ink-soft); font-size: 14px; padding: 12px; }
 .loading.error { color: #dc2626; }
 
-/* ---------- 차트 영역 ---------- */
-.charts-area { padding: 20px 20px 48px; }
+/* ---------- 차트 영역 (오른쪽 칸) ---------- */
+.charts-area { min-width: 0; } /* grid 안에서 넘침 방지 */
 
 .empty-state {
   text-align: center;
@@ -309,14 +373,40 @@ html, body {
   font-size: 16px;
   font-weight: 700;
 }
-/* 차트 높이: 2열일 때도 넉넉하게 키움 */
+
+/*
+  ── 차트 높이: 화면 높이(vh) 비율로 자동 조절 ─────────────
+  vh = viewport height(화면 높이)의 1%. 즉 70vh = 화면 높이의 70%.
+  화면이 크든 작든 그 비율만큼 차지하므로 어느 기기에서나 균형이 맞습니다.
+
+  개수별 규칙:
+   - 3개 이상(기본 2열)      : 촘촘하게 (고정 380px)
+   - 2개(is-few, 1열)        : 각 55vh
+   - 1개(is-few + 자식 1개)  : 70vh (하나에 집중, 크게)
+
+  min-height 로 너무 작아지지 않도록 하한선을 둡니다.
+*/
+
+/* (기본) 3개 이상 = 2열, 촘촘 */
 .canvas-wrap {
   position: relative;
-  height: 320px;
+  height: 380px;
 }
-/* 1열(크게 볼 때)일 때는 더 높게 */
+
+/* 1~2개(is-few, 1열): 기본은 2개 기준 55vh */
 .charts-grid.is-few .canvas-wrap {
-  height: 420px;
+  height: 55vh;
+  min-height: 380px;   /* 화면이 낮아도 이 아래로는 안 작아짐 */
+}
+
+/*
+  1개만 선택된 경우: is-few 안에 카드가 '딱 하나'일 때만 적용.
+  :only-child = 그 부모의 유일한 자식일 때. → 카드가 1개면 70vh.
+  (JS 수정 없이 CSS만으로 "1개 vs 2개"를 구분하는 방법입니다.)
+*/
+.charts-grid.is-few .chart-card:only-child .canvas-wrap {
+  height: 70vh;
+  min-height: 440px;
 }
 .no-data {
   display: flex;
@@ -332,19 +422,74 @@ html, body {
 .site-footer {
   border-top: 1px solid var(--line);
   background: var(--panel);
-  padding: 20px 0;
+  padding: 20px;
+  text-align: center;
 }
 .site-footer p {
   margin: 0;
   color: var(--ink-soft);
   font-size: 13px;
 }
+/* 법적 면책 문구: 출처보다 작고 옅게, 폭 제한해 읽기 좋게 */
+.site-footer .disclaimer {
+  margin: 8px auto 0;
+  max-width: 640px;
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.5;
+}
 
-/* ---------- 모바일 대응 ---------- */
+/* ---------- 반응형: 태블릿 (좌우 → 위아래) ---------- */
+/*
+  화면이 좁아지면(1000px 이하) 좌우 2단을 위아래 1단으로 바꿉니다.
+  왼쪽 사이드바가 위로, 차트가 아래로 쌓입니다.
+*/
+@media (max-width: 1000px) {
+  .app-layout {
+    grid-template-columns: 1fr;  /* 한 줄 = 위아래로 쌓임 */
+  }
+  .sidebar {
+    position: static;   /* 따라다니지 않게 (위에 한 번만) */
+  }
+  /* 위쪽 사이드바는 컨트롤을 가로로 펼쳐 공간 절약 */
+  .sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    align-items: flex-start;
+  }
+  /* 지역 선택 블록은 가로폭을 다 쓰도록 */
+  .region-picker { flex: 1 1 100%; }
+}
+
+/* ---------- 반응형: 휴대폰 ---------- */
 @media (max-width: 640px) {
-  .charts-grid { grid-template-columns: 1fr; }
-  .controls-grid { gap: 16px; }
-  .canvas-wrap, .charts-grid.is-few .canvas-wrap { height: 300px; }
+  .charts-grid,
+  .charts-grid.is-few {
+    grid-template-columns: 1fr;  /* 차트는 항상 1개씩 세로로 */
+  }
+  /*
+    휴대폰에서는 vh 비율 대신 고정 높이를 씁니다.
+    세로로 긴 폰에서 70vh는 너무 길쭉해지기 때문입니다.
+  */
+  .canvas-wrap,
+  .charts-grid.is-few .canvas-wrap {
+    height: 320px;
+    min-height: 0;
+  }
+  /* 1개만 볼 때는 조금 더 크게 */
+  .charts-grid.is-few .chart-card:only-child .canvas-wrap {
+    height: 420px;
+    min-height: 0;
+  }
+  /* 사이드바를 다시 세로로 (좁아서 가로 배치가 오히려 답답) */
+  .sidebar {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .app-layout { padding: 14px; gap: 14px; }
+  .header-inner { gap: 8px; }
+  .header-note { display: none; } /* 좁으면 출처 문구 숨겨 공간 확보 */
 }
 
 /* 애니메이션 최소화 설정을 존중 */

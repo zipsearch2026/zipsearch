@@ -52,6 +52,7 @@ const UI = {
     this.state.end = allLabels[allLabels.length - 1];
 
     this._buildPeriodSelects();
+    this._buildQuickPeriod();   // 1/3/5년·전체 빠른 버튼
     this._buildTypeToggle();
     this._buildMAToggle();
     this._buildRegionList();
@@ -122,6 +123,7 @@ const UI = {
         this.state.end = this.state.start;
         endSel.value = this.state.end;
       }
+      this._clearQuickActive(); // 직접 조정했으니 빠른버튼 표시 해제
       this._notify();
     });
     endSel.addEventListener("change", () => {
@@ -130,8 +132,59 @@ const UI = {
         this.state.start = this.state.end;
         startSel.value = this.state.start;
       }
+      this._clearQuickActive();
       this._notify();
     });
+  },
+
+  // 빠른 기간 버튼들의 활성 표시를 모두 끔
+  _clearQuickActive() {
+    const box = document.getElementById("quick-period");
+    if (box) box.querySelectorAll(".quick-btn").forEach((b) => b.classList.remove("is-active"));
+  },
+
+  /* ---------- 빠른 기간 버튼 (1/3/5년, 전체) ---------- */
+  _buildQuickPeriod() {
+    const box = document.getElementById("quick-period");
+    if (!box) return;
+
+    box.querySelectorAll(".quick-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const val = btn.dataset.years; // "1","3","5","all"
+
+        // 끝은 항상 '데이터의 마지막 달'로 고정
+        // (실제 오늘이 아니라 데이터 기준이라야 빈 구간이 안 생김)
+        const lastYm = this._allLabels[this._allLabels.length - 1];
+
+        let startYm;
+        if (val === "all") {
+          startYm = this._allLabels[0]; // 전체: 맨 처음 달
+        } else {
+          // "N년 전"을 계산: 마지막 달에서 (N*12)개월 뒤로 이동
+          const years = parseInt(val, 10);
+          const idx = this._allLabels.length - 1 - years * 12;
+          // 데이터보다 더 과거를 요구하면 맨 처음으로 보정
+          startYm = idx >= 0 ? this._allLabels[idx] : this._allLabels[0];
+        }
+
+        // 상태·드롭다운을 함께 갱신하고 다시 그림
+        this._applyPeriod(startYm, lastYm);
+
+        // 눌린 버튼 표시 갱신
+        box.querySelectorAll(".quick-btn").forEach((b) => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+      });
+    });
+  },
+
+  /* 기간을 한 번에 지정: 상태 + 드롭다운 + 다시 그리기 */
+  _applyPeriod(startYm, endYm) {
+    this.state.start = startYm;
+    this.state.end = endYm;
+    // 드롭다운 표시도 맞춰줌
+    document.getElementById("start-select").value = startYm;
+    document.getElementById("end-select").value = endYm;
+    this._notify();
   },
 
   /* ---------- 매매/전세 토글 ---------- */
