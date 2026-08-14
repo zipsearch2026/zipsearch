@@ -58,7 +58,33 @@ const UI = {
     this._buildRegionList();
     this._buildSearch();
     this._buildPickerToggle();  // 지역 목록 접기/펼치기 버튼
-    this._renderChips();        // 선택 칩 초기 표시(처음엔 비어 있음)
+
+    // 처음 열었을 때 기본으로 보여줄 지역을 선택해 둔다.
+    // (여기 이름만 바꾸면 기본 지역이 바뀝니다. 예: "서울")
+    this._selectDefaultRegion("수도권");
+
+    this._renderChips();        // 선택 칩 표시
+    this._notify();             // 기본 지역으로 첫 차트를 그리도록 알림
+  },
+
+  /*
+    기본 지역을 미리 선택된 상태로 만든다.
+      regionName : regions.json에 있는 지역 이름 (예: "수도권")
+    - 이름으로 찾으므로, 나중에 데이터가 갱신돼 파일 번호가 바뀌어도 안전합니다.
+    - 상태(selected)에 넣고, 목록의 해당 체크박스도 체크 표시합니다.
+  */
+  _selectDefaultRegion(regionName) {
+    const region = this._regions.find((r) => r.name === regionName);
+    if (!region) return; // 못 찾으면 그냥 빈 화면으로 시작
+
+    // 상태에 추가
+    this.state.selected.push(region);
+
+    // 목록에 있는 해당 체크박스도 체크된 것으로 표시
+    const cb = document.querySelector(`#region-list input[value="${region.file}"]`);
+    if (cb) cb.checked = true;
+
+    this._updateCount(); // 개수 표시 갱신 (0 → 1)
   },
 
   /* ---------- 지역 목록 접기/펼치기 ---------- */
